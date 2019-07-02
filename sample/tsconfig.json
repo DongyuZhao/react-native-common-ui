@@ -2,7 +2,7 @@
     "compilerOptions": {
         "target": "es2017",
         "module": "es2015",
-        "rootDir": "../",
+        "rootDir": "./",
         "outDir": "dist",
         "jsx": "react",
         "moduleResolution": "node",
@@ -20,10 +20,6 @@
         "declaration": true,
         "allowSyntheticDefaultImports": true,
         "skipLibCheck": true,
-        "baseUrl": "./src",
-        "paths": {
-            "react-native-common-ui": ["../../source"]
-        },
         "plugins": [
             {
                 "name": "tslint-language-service"

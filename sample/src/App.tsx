@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
-
-import { name } from 'react-native-common-ui';
+import { FlexImage } from 'react-native-common-ui';
 
 const styles = StyleSheet.create({
     container: {
@@ -31,13 +30,26 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu'`
 });
 
+// tslint:disable: max-line-length
+// tslint:disable: quotemark
+// tslint:disable: no-magic-numbers
 export class App extends Component {
     public render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.welcome}>Welcome to {name}!</Text>
+                <Text style={styles.welcome}>Welcome!</Text>
                 <Text style={styles.instructions}>To get started, edit App.js</Text>
                 <Text style={styles.instructions}>{instructions}</Text>
+                <FlexImage
+                    source={{ uri: "https://www.bing.com/th?id=OHR.BailysBeads_ROW6229832412_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp" }}
+                    alt='image'
+                    width={100}
+                    height={100}
+                    fill='contain'
+                    onPress={() => {
+                        console.log('clicked');
+                    }}
+                />
             </View>
         );
     }

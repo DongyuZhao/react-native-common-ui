@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { Image as ImageFetcher, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { isSvg } from 'react-native-svg-component';
+
+import { ImageUtils } from '../Utils/Image';
 
 import { Image, ImageProps } from './Image';
 import { Touchable } from './Touchable';
 
+export type ImageFillOptions = 'stretch' | 'contain' | 'cover' | 'stretch' | 'repeat' | 'center' | 'horizontal' | 'vertical';
+
 export interface FlexImageProps extends ImageProps {
-    fill: 'stretch' | 'contain' | 'cover' | 'stretch' | 'repeat' | 'center' | 'horizontal' | 'vertical';
+    fill: ImageFillOptions;
     onPress?: () => void;
+    width: number;
+    height: number;
 }
 
 export const FlexImage = (props: FlexImageProps) => {
@@ -48,29 +54,31 @@ export const FlexImage = (props: FlexImageProps) => {
 
     useEffect(() => {
         const uri = (props.source as any).uri as string;
-        if (isSvg(uri)) {
-            onSizeFetched(props.width, props.height);
+        if (!isSvg(uri) && (props.fill === 'horizontal' || props.fill === 'vertical')) {
+            ImageUtils.fetchSize(uri, onSizeFetched, onSizeError);
         } else {
-            ImageFetcher.getSize(uri, onSizeFetched, onSizeError);
+            onSizeFetched(props.width, props.height);
         }
-    }, [props.source, props.fill]);
+    }, [props.source, props.width, props.height, props.fill]);
+
+    const { width, height, onPress, fill, ...others } = props;
 
     if (state.loaded) {
         return (
             <Touchable
                 style={{
-                    width: props.width,
-                    height: props.height,
+                    width: width,
+                    height: height,
                     alignContent: 'center',
                     alignItems: 'center',
                 }}
-                onPress={props.onPress}
+                onPress={onPress}
             >
                 <Image
-                    {...props}
+                    {...others}
                     width={state.width}
                     height={state.height}
-                    resizeMode={props.fill === 'horizontal' || props.fill === 'vertical' ? undefined : props.fill}
+                    resizeMode={fill === 'horizontal' || fill === 'vertical' ? undefined : fill}
                 />
             </Touchable>
         );

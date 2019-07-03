@@ -211,10 +211,10 @@ path-parse@^1.0.6:
   resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.6.tgz#d62dbb5679405d72c4737ec58600e9ddcf06d24c"
   integrity sha512-GSmOT2EbHrINBf9SR7CDELwlJ8AENk3Qn7OikK4nFYAu3Ote2+JYNVvkpAEQm3/TLNEJFD/xZJjzyxg3KBWOzw==
 
-react-native-svg-component@^0.1.25:
-  version "0.1.25"
-  resolved "https://registry.yarnpkg.com/react-native-svg-component/-/react-native-svg-component-0.1.25.tgz#50ca2058833cfd235f9d3ac4cceb0ecc31c64b28"
-  integrity sha512-76SUhRrsjwnQu4JXhNnTSwwBEw5T25+7ZBWuFz6CBAdDgI+6FbRwMmXjuchwvDDbHYxlrkCyMoNTa3wzbIJfzw==
+react-native-svg-component@^0.1.28:
+  version "0.1.28"
+  resolved "https://registry.yarnpkg.com/react-native-svg-component/-/react-native-svg-component-0.1.28.tgz#3df28afdf859a99b8802d45c089fa38418808634"
+  integrity sha512-JdajQz1Ta1UlFpxfWAnQHPgbqerQR5f8p/IlX204ntW6l2QQnAt4FK7P0ZFUY8nQ3i8lS1v2hfByXLgbZqdCKQ==
   dependencies:
     xmldom "^0.1.27"
 

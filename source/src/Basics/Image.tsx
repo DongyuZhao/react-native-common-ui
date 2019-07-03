@@ -1,18 +1,16 @@
 import React from 'react';
-import { Image as RNImage, ImageProps as RNImageProps } from 'react-native';
+import { Image as RawImage, ImageProps as RawImageProps } from 'react-native';
 import { isSvg, Svg } from 'react-native-svg-component';
 
-export interface ImageProps extends RNImageProps {
+export interface ImageProps extends RawImageProps {
     alt: string;
-    width: number;
-    height: number;
 }
 
 export const Image = (props: ImageProps) => {
     const { source, alt, width, height, style, ...others } = props;
 
     const uri = (source as any).uri as string;
-    console.log(width, height);
+
     if (isSvg(uri)) {
         return (
             <Svg
@@ -26,7 +24,7 @@ export const Image = (props: ImageProps) => {
         );
     } else {
         return (
-            <RNImage
+            <RawImage
                 {...others}
                 source={source}
                 accessibilityLabel={alt}

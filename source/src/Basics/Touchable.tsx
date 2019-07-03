@@ -22,7 +22,7 @@ export interface TouchableProps {
     onPress?: (data: any) => void;
     onLongPress?: (data: any) => void;
     onLayout?: (event: LayoutChangeEvent) => void;
-    children?: JSX.Element;
+    children?: React.ReactNode;
 }
 
 export const Touchable = (props: TouchableProps) => {

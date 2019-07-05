@@ -58,6 +58,7 @@ export const Touchable = (props: TouchableProps) => {
             hitSlop,
             style,
             disabled,
+            children,
             ...others
         } = props;
 
@@ -79,7 +80,9 @@ export const Touchable = (props: TouchableProps) => {
                     <View
                         style={style}
                         {...others}
-                    />
+                    >
+                        {children}
+                    </View>
                 </TouchableNativeFeedback>);
         } else {
             return (
@@ -95,8 +98,9 @@ export const Touchable = (props: TouchableProps) => {
                     accessibilityLabel={props.accessibilityLabel}
                     accessibilityRole={accessibilityRole === undefined ? 'button' : accessibilityRole}
                     onLayout={props.onLayout}
+                    {...others}
                 >
-                    {others.children}
+                    {children}
                 </TouchableOpacity>
             );
         }

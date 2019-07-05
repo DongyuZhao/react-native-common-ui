@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
 import { isSvg } from 'react-native-svg-component';
 
+import { ImageFillMode } from '../Shared/Image';
 import { ImageUtils } from '../Utils/Image';
 
 import { Image, ImageProps } from './Image';
 import { Touchable } from './Touchable';
 
-export type ImageFillOptions = 'stretch' | 'contain' | 'cover' | 'stretch' | 'repeat' | 'center' | 'horizontal' | 'vertical';
-
 export interface FlexImageProps extends ImageProps {
-    fill: ImageFillOptions;
+    fill: ImageFillMode;
     onPress?: () => void;
     width: number;
     height: number;
@@ -24,8 +22,10 @@ export const FlexImage = (props: FlexImageProps) => {
     });
 
     const onSizeFetched = (width: number, height: number) => {
+        console.log(width, height);
         if (width > 0 && height > 0 && props.width > 0 && props.height > 0) {
             const ratio = width / height;
+            const containerRatio = props.width / props.height;
             if (props.fill === 'horizontal') {
                 setState({
                     width: props.width,
@@ -38,6 +38,36 @@ export const FlexImage = (props: FlexImageProps) => {
                     height: props.height,
                     loaded: true
                 });
+            } else if (props.fill === 'auto') {
+                if (ratio > containerRatio) {
+                    if (width > props.width) {
+                        setState({
+                            width: props.width,
+                            height: props.width / ratio,
+                            loaded: true,
+                        });
+                    } else {
+                        setState({
+                            width: width,
+                            height: width / ratio,
+                            loaded: true,
+                        });
+                    }
+                } else {
+                    if (height > props.height) {
+                        setState({
+                            width: props.height * ratio,
+                            height: props.height,
+                            loaded: true,
+                        });
+                    } else {
+                        setState({
+                            width: height * ratio,
+                            height: height,
+                            loaded: true,
+                        });
+                    }
+                }
             } else {
                 setState({
                     width: props.width,
@@ -54,7 +84,7 @@ export const FlexImage = (props: FlexImageProps) => {
 
     useEffect(() => {
         const uri = (props.source as any).uri as string;
-        if (!isSvg(uri) && (props.fill === 'horizontal' || props.fill === 'vertical')) {
+        if (!isSvg(uri) && (props.fill === 'horizontal' || props.fill === 'vertical' || props.fill === 'auto')) {
             ImageUtils.fetchSize(uri, onSizeFetched, onSizeError);
         } else {
             onSizeFetched(props.width, props.height);
@@ -64,11 +94,12 @@ export const FlexImage = (props: FlexImageProps) => {
     const { width, height, onPress, fill, ...others } = props;
 
     if (state.loaded) {
+
         return (
             <Touchable
                 style={{
-                    width: width,
-                    height: height,
+                    maxWidth: width,
+                    maxHeight: height,
                     alignContent: 'center',
                     alignItems: 'center',
                 }}
@@ -78,22 +109,11 @@ export const FlexImage = (props: FlexImageProps) => {
                     {...others}
                     width={state.width}
                     height={state.height}
-                    resizeMode={fill === 'horizontal' || fill === 'vertical' ? undefined : fill}
+                    resizeMode={fill === 'horizontal' || fill === 'vertical' || fill === 'auto' ? undefined : fill}
                 />
             </Touchable>
         );
     } else {
-        return (
-            <View
-                accessibilityRole='image'
-                accessibilityLabel={props.accessibilityLabel}
-                style={{
-                    width: props.width,
-                    height: props.height,
-                    borderWidth: StyleSheet.hairlineWidth,
-                    borderColor: '#aaa',
-                }}
-            />
-        );
+        return null;
     }
 };

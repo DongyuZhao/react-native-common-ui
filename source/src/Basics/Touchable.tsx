@@ -26,7 +26,7 @@ export interface TouchableProps {
 }
 
 export const Touchable = (props: TouchableProps) => {
-    let testId: string;
+    let testId = props.testId;
 
     const onPress = (data: any) => {
         if (props.onPress) {

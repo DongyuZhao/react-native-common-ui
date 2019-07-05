@@ -59,9 +59,29 @@ export class App extends Component {
                 <FlexImage
                     source={{ uri: "https://www.bing.com/th?id=OHR.Transfagarasan_JA-JP3465969089_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp" }}
                     alt='image'
-                    width={240}
-                    height={135}
+                    width={320}
+                    height={180}
                     fill='contain'
+                    onPress={() => {
+                        console.log('clicked');
+                    }}
+                />
+                <FlexImage
+                    source={{ uri: "https://cdn.vsassets.io/ext/ms.vss-code-web/common-content/Nav-Code.0tJczmQtl3hyKtlh.png" }}
+                    alt='image'
+                    width={320}
+                    height={180}
+                    fill='auto'
+                    onPress={() => {
+                        console.log('clicked');
+                    }}
+                />
+                <FlexImage
+                    source={{ uri: "https://www.bing.com/th?id=OHR.Transfagarasan_JA-JP3465969089_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp" }}
+                    alt='image'
+                    width={320}
+                    height={180}
+                    fill='auto'
                     onPress={() => {
                         console.log('clicked');
                     }}

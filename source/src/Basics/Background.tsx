@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { ImageResizeMode, ImageSourcePropType, LayoutChangeEvent, StyleSheet, View, ViewProps } from 'react-native';
 import { isSvg } from 'react-native-svg-component';
 
+import { ImageFillMode } from '../Shared/Image';
 import { ImageUtils } from '../Utils/Image';
 
 import { Image } from './Image';
 
 export interface BackgroundProps extends ViewProps {
     source: ImageSourcePropType;
-    fill: 'stretch' | 'contain' | 'cover' | 'stretch' | 'repeat' | 'center' | 'horizontal' | 'vertical';
+    fill: ImageFillMode;
     children?: React.ReactNode;
 }
 
@@ -49,6 +50,8 @@ export const Background = (props: BackgroundProps) => {
                 } else {
                     setState({ ...state, resize: 'contain' });
                 }
+            } else if (fill === 'auto') {
+                setState({ ...state, resize: 'center' });
             } else {
                 setState({ ...state, resize: fill });
             }
@@ -61,7 +64,7 @@ export const Background = (props: BackgroundProps) => {
 
     useEffect(() => {
         const uri = (props.source as any).uri as string;
-        if (!isSvg(uri) || fill === 'horizontal' || fill === 'vertical') {
+        if (!isSvg(uri) || fill === 'horizontal' || fill === 'vertical' || fill === 'auto') {
             ImageUtils.fetchSize(uri, onSizeFetched, onSizeError);
         } else {
             setState({ ...state, resize: fill });

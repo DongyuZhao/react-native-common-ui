@@ -10,7 +10,7 @@
     "dependencies": {
         "react": "16.8.6",
         "react-native": "0.59.10",
-        "react-native-common-ui": "file:../source",
+        "react-native-common-ui": "../source",
         "react-native-svg": "^9.5.1"
     },
     "devDependencies": {

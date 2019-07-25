@@ -4,17 +4,19 @@ import {
     DeviceEventEmitter,
     LayoutChangeEvent,
     Platform,
+    StyleProp,
     TouchableNativeFeedback,
     TouchableOpacity,
-    View
+    View,
+    ViewStyle
 } from 'react-native';
 
-import { Guid } from '../Shared/Guid';
+import { Guid } from '../Common/Guid';
 
 export interface TouchableProps {
     testId?: string;
     disabled?: boolean;
-    style?: object;
+    style?: StyleProp<ViewStyle>;
     accessibilityLabel?: string;
     accessibilityRole?: AccessibilityRole;
     hitSlop?: object;

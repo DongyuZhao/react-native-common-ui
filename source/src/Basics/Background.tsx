@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ImageResizeMode, ImageSourcePropType, LayoutChangeEvent, StyleSheet, View, ViewProps } from 'react-native';
 import { isSvg } from 'react-native-svg-component';
 
-import { ImageFillMode } from '../Shared/Image';
+import { ImageFillMode } from '../Common/Image';
 import { ImageUtils } from '../Utils/Image';
 
 import { Image } from './Image';

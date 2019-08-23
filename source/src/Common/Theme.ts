@@ -97,6 +97,7 @@ export interface BorderTheme {
     button: BorderConfig;
     card: BorderConfig;
     modal: BorderConfig;
+    container: BorderConfig;
 }
 
 export interface SpacingTheme {
@@ -107,6 +108,7 @@ export interface SpacingTheme {
     card: SpacingConfig;
     modal: SpacingConfig;
     text: SpacingConfig;
+    container: SpacingConfig;
 }
 
 export interface UxTheme {

@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, View } from 'react-native';
-import { Alert, Badge, Bubble, Button, Card, Header, Link, name, Text } from 'react-native-common-ui';
+import { Platform, StyleSheet } from 'react-native';
+import { Alert, Badge, Bubble, Button, Card, Header, Link, name, ScrollView, Text } from 'react-native-common-ui';
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#F5FCFF',
     },
     welcome: {
         fontSize: 20,
@@ -49,7 +48,7 @@ export class App extends Component<any, State> {
 
     public render() {
         return (
-            <View style={styles.container}>
+            <ScrollView theme={this.state.theme} subtle={false} contentContainerStyle={styles.container}>
                 <Card theme={this.state.theme} subtle={false}>
                     <Alert subtle={false} content={'This is an alert.'} level={'good'} theme={this.state.theme} />
                     <Header level={1} subtle={false} theme={this.state.theme}>Sample</Header>
@@ -68,7 +67,7 @@ export class App extends Component<any, State> {
                     <Button title='LIGHT THEME' variant='accent' reverse={false} theme={this.state.theme} subtle={false} onPress={this.onChangeToLight} />
                     <Button title='DARK THEME' variant='accent' reverse={true} theme={this.state.theme} subtle={false} onPress={this.onChangeToDark} />
                 </Card>
-            </View>
+            </ScrollView>
         );
     }
 

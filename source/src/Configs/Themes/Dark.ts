@@ -371,9 +371,9 @@ export const Theme: UxTheme = {
             shadowOpacity: 0,
         },
         card: {
-            borderWidth: 1,
+            borderWidth: 2,
             borderRadius: 2,
-            borderStyle: 'dashed',
+            borderStyle: 'solid',
             elevation: 2,
             shadowOffset: {
                 width: 0,
@@ -393,6 +393,18 @@ export const Theme: UxTheme = {
             },
             shadowRadius: 3,
             shadowOpacity: .08,
+        },
+        container: {
+            borderWidth: 0,
+            borderRadius: 0,
+            borderStyle: 'solid',
+            elevation: 0,
+            shadowOffset: {
+                width: 0,
+                height: 0
+            },
+            shadowRadius: 0,
+            shadowOpacity: 0,
         },
     },
     spacing: {
@@ -431,6 +443,12 @@ export const Theme: UxTheme = {
             marginHorizontal: 8,
             paddingVertical: 8,
             paddingHorizontal: 8,
+        },
+        container: {
+            marginVertical: 0,
+            marginHorizontal: 0,
+            paddingVertical: 0,
+            paddingHorizontal: 0,
         },
         text: {
             marginVertical: 0,

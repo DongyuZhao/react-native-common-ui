@@ -5,4 +5,6 @@ export { Button } from './Button';
 export { Card } from './Card';
 export { Header } from './Header';
 export { Link } from './Link';
+export { ScrollView } from './ScrollView';
 export { Text } from './Text';
+export { View } from './View';

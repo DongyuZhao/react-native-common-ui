@@ -10,8 +10,8 @@
     "dependencies": {
         "react": "16.8.6",
         "react-native": "0.59.10",
-        "react-native-common-ui": "../source",
-        "react-native-svg": "^9.5.1"
+        "react-native-svg": "^9.5.1",
+        "react-native-svg-component": "^0.1.28"
     },
     "devDependencies": {
         "@babel/core": "^7.4.5",

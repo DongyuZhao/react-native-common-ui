@@ -4286,12 +4286,6 @@ react-is@^16.8.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
   integrity sha512-aUk3bHfZ2bRSVFFbbeVS4i+lNPZr3/WM5jT2J5omUVV1zzcs1nAaf3l51ctA5FFvCRbhrH0bdAsRRQddFJZPtA==
 
-react-native-common-ui@../source:
-  version "0.0.1"
-  dependencies:
-    react-native-svg "^9.5.1"
-    react-native-svg-component "^0.1.28"
-
 react-native-svg-component@^0.1.28:
   version "0.1.28"
   resolved "https://registry.yarnpkg.com/react-native-svg-component/-/react-native-svg-component-0.1.28.tgz#3df28afdf859a99b8802d45c089fa38418808634"

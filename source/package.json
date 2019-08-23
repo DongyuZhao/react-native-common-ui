@@ -27,6 +27,6 @@
     },
     "dependencies": {
         "react-native-svg-component": "^0.1.28",
-        "react-native-svg": "^9.5.1"
+        "react-native-svg": "^9.6.2"
     }
 }

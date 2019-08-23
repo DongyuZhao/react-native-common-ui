@@ -1,5 +1,3 @@
-import { StyleSheet } from 'react-native';
-
 import { UxTheme } from '../../Common/Theme';
 
 export const Theme: UxTheme = {
@@ -327,6 +325,7 @@ export const Theme: UxTheme = {
         alert: {
             borderWidth: 1,
             borderRadius: 2,
+            borderStyle: 'solid',
             elevation: 2,
             shadowOffset: {
                 width: 0,
@@ -338,6 +337,19 @@ export const Theme: UxTheme = {
         badge: {
             borderWidth: 1,
             borderRadius: 2,
+            borderStyle: 'solid',
+            elevation: 0,
+            shadowOffset: {
+                width: 0,
+                height: 0
+            },
+            shadowRadius: 0,
+            shadowOpacity: 0,
+        },
+        bubble: {
+            borderWidth: 1,
+            borderRadius: 16,
+            borderStyle: 'solid',
             elevation: 0,
             shadowOffset: {
                 width: 0,
@@ -349,6 +361,7 @@ export const Theme: UxTheme = {
         button: {
             borderWidth: 1,
             borderRadius: 2,
+            borderStyle: 'solid',
             elevation: 0,
             shadowOffset: {
                 width: 0,
@@ -358,8 +371,9 @@ export const Theme: UxTheme = {
             shadowOpacity: 0,
         },
         card: {
-            borderWidth: StyleSheet.hairlineWidth,
+            borderWidth: 1,
             borderRadius: 2,
+            borderStyle: 'dashed',
             elevation: 2,
             shadowOffset: {
                 width: 0,
@@ -369,8 +383,9 @@ export const Theme: UxTheme = {
             shadowOpacity: .08,
         },
         modal: {
-            borderWidth: StyleSheet.hairlineWidth,
+            borderWidth: 1,
             borderRadius: 2,
+            borderStyle: 'solid',
             elevation: 2,
             shadowOffset: {
                 width: 0,
@@ -392,6 +407,12 @@ export const Theme: UxTheme = {
             marginHorizontal: 4,
             paddingVertical: 0,
             paddingHorizontal: 4,
+        },
+        bubble: {
+            marginVertical: 8,
+            marginHorizontal: 8,
+            paddingVertical: 2,
+            paddingHorizontal: 8,
         },
         button: {
             marginVertical: 8,

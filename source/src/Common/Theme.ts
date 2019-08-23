@@ -38,6 +38,7 @@ export interface FontConfig {
 export interface BorderConfig {
     borderWidth: number;
     borderRadius: number;
+    borderStyle: 'solid' | 'dotted' | 'dashed';
     elevation: number;
     shadowOffset: ShadowOffset;
     shadowRadius: number;
@@ -92,6 +93,7 @@ export interface TextTheme {
 export interface BorderTheme {
     alert: BorderConfig;
     badge: BorderConfig;
+    bubble: BorderConfig;
     button: BorderConfig;
     card: BorderConfig;
     modal: BorderConfig;
@@ -100,6 +102,7 @@ export interface BorderTheme {
 export interface SpacingTheme {
     alert: SpacingConfig;
     badge: SpacingConfig;
+    bubble: SpacingConfig;
     button: SpacingConfig;
     card: SpacingConfig;
     modal: SpacingConfig;

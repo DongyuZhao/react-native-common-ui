@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
-import { Alert, Badge, Button, Card, Header, Link, name, Text } from 'react-native-common-ui';
+import { Alert, Badge, Bubble, Button, Card, Header, Link, name, Text } from 'react-native-common-ui';
 
 const styles = StyleSheet.create({
     container: {
@@ -63,6 +63,8 @@ export class App extends Component<any, State> {
                     </Text>
                     <Badge level='good' variant='pill' content='MSFT' theme={this.state.theme} subtle={false} />
                     <Badge level='warn' variant='normal' content='MSFT' theme={this.state.theme} subtle={false} />
+                    <Bubble content='Ping' level='good' role='ping' theme={this.state.theme} subtle={false} />
+                    <Bubble content='Pong' level='info' role='pong' theme={this.state.theme} subtle={false} />
                     <Button title='LIGHT THEME' variant='accent' reverse={false} theme={this.state.theme} subtle={false} onPress={this.onChangeToLight} />
                     <Button title='DARK THEME' variant='accent' reverse={true} theme={this.state.theme} subtle={false} onPress={this.onChangeToDark} />
                 </Card>

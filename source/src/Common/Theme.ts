@@ -6,8 +6,8 @@ export type FontVariant = keyof (ContentConfig);
 export interface ShadowOffset { width: number; height: number; }
 
 export interface ThemableProps {
-    theme: string;
-    subtle: boolean;
+    theme?: string;
+    subtle?: boolean;
 }
 
 export interface ColorConfig {

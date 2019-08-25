@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Platform, ScrollView, StyleSheet } from 'react-native';
-import { Alert, Badge, Bubble, Button, Card, Container, Header, Link, name, Text } from 'react-native-common-ui';
+import { Alert, Badge, Bubble, Button, Card, Container, Header, Link, name, Text, ThemeContext } from 'react-native-common-ui';
 
 const styles = StyleSheet.create({
     container: {
@@ -45,26 +45,28 @@ export class App extends Component<any, State> {
 
     public render() {
         return (
-            <Container component={ScrollView} theme={this.state.theme} subtle={false} contentContainerStyle={styles.container}>
-                <Card theme={this.state.theme} subtle={false}>
-                    <Alert subtle={false} content={'This is an alert.'} level={'good'} theme={this.state.theme} />
-                    <Header level={1} subtle={false} theme={this.state.theme}>Sample</Header>
-                    <Text style={styles.welcome} subtle={false} variant={'primary'} theme={this.state.theme}>
-                        Welcome to {name}!
-                    </Text>
-                    <Text style={styles.instructions} subtle={false} variant={'danger'} theme={this.state.theme}>To get started, edit App.js</Text>
-                    <Text style={styles.instructions} subtle={false} variant={'mark'} theme={this.state.theme}>{instructions}</Text>
-                    <Text subtle={false} variant={'primary'} theme={this.state.theme}>
-                        The repo is host on <Link url={'https://github.com/DongyuZhao/react-native-common-ui'} subtle={false} style={styles.instructions} theme={this.state.theme}>GitHub</Link>
-                    </Text>
-                    <Badge level='good' variant='pill' content='MSFT' theme={this.state.theme} subtle={false} />
-                    <Badge level='warn' variant='normal' content='MSFT' theme={this.state.theme} subtle={false} />
-                    <Bubble content='Ping' level='good' role='ping' theme={this.state.theme} subtle={false} />
-                    <Bubble content='Pong' level='info' role='pong' theme={this.state.theme} subtle={false} />
-                    <Button title='LIGHT THEME' variant='accent' reverse={false} theme={this.state.theme} subtle={false} onPress={this.onChangeToLight} />
-                    <Button title='DARK THEME' variant='accent' reverse={true} theme={this.state.theme} subtle={false} onPress={this.onChangeToDark} />
-                </Card>
-            </Container>
+            <ThemeContext.Provider value={this.state}>
+                    <Container component={ScrollView} subtle={false} contentContainerStyle={styles.container}>
+                        <Card subtle={false}>
+                            <Alert subtle={false} content={'This is an alert.'} level={'good'} />
+                            <Header level={1} subtle={false}>Sample</Header>
+                            <Text style={styles.welcome} subtle={false} variant={'primary'}>
+                                Welcome to {name}!
+                            </Text>
+                            <Text style={styles.instructions} subtle={false} variant={'danger'}>To get started, edit App.js</Text>
+                            <Text style={styles.instructions} subtle={false} variant={'mark'}>{instructions}</Text>
+                            <Text subtle={false} variant={'primary'}>
+                                The repo is host on <Link url={'https://github.com/DongyuZhao/react-native-common-ui'} subtle={false} style={styles.instructions}>GitHub</Link>
+                            </Text>
+                            <Badge level='good' variant='pill' content='MSFT' subtle={false} />
+                            <Badge level='warn' variant='normal' content='MSFT' subtle={false} />
+                            <Bubble content='Ping' level='good' role='ping' subtle={false} />
+                            <Bubble content='Pong' level='info' role='pong' subtle={false} />
+                            <Button title='LIGHT THEME' variant='accent' reverse={false} subtle={false} onPress={this.onChangeToLight} />
+                            <Button title='DARK THEME' variant='accent' reverse={true} subtle={false} onPress={this.onChangeToDark} />
+                        </Card>
+                    </Container>
+            </ThemeContext.Provider>
         );
     }
 

@@ -21,7 +21,6 @@
             true,
             "spaces"
         ],
-        "interface-name": true,
         "interface-over-type-literal": true,
         "label-position": true,
         "max-line-length": [
@@ -74,7 +73,6 @@
         "no-invalid-template-strings": true,
         "no-invalid-this": true,
         "no-irregular-whitespace": true,
-        "no-magic-numbers": true,
         "no-mergeable-namespace": true,
         "no-misused-new": true,
         "no-non-null-assertion": true,
@@ -99,11 +97,15 @@
             "check-else",
             "check-whitespace"
         ],
-        "only-arrow-functions": true,
+        "only-arrow-functions": [
+            true,
+            "allow-declarations",
+            "allow-named-functions"
+        ],
         "ordered-imports": [
             true,
             {
-                "grouped-inports": true
+                "grouped-imports": true
             }
         ],
         "prefer-conditional-expression": true,
@@ -127,7 +129,6 @@
         ],
         "unified-signatures": true,
         "use-isnan": true,
-        "variable-name": true,
         "whitespace": [
             true,
             "check-branch",

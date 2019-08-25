@@ -29,14 +29,11 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu'`
 });
 
-// tslint:disable-next-line: interface-name
 interface State {
     theme: string;
 }
 
 // tslint:disable: max-line-length
-// tslint:disable: quotemark
-// tslint:disable: no-magic-numbers
 export class App extends Component<any, State> {
     public constructor(props: any) {
         super(props);

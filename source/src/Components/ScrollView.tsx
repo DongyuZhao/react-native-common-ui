@@ -3,34 +3,22 @@ import { ScrollView as RCTScrollView, ScrollViewProps as RCTScrollViewProps } fr
 
 import { NestableProps } from '../Common/React';
 import { ThemableProps } from '../Common/Theme';
-import { useTheme } from '../Hooks/Theme';
+
+import { Container } from './Container';
 
 export interface ScrollViewProps extends RCTScrollViewProps, NestableProps, ThemableProps {
 
 }
 
 export const ScrollView = (props: ScrollViewProps) => {
-    const { children, theme, subtle, style, ...others } = props;
-
-    const config = useTheme(theme);
-
-    const color = subtle ? config.color.subtle['primary'] : config.color.main['primary'];
+    const { theme, subtle, ...others } = props;
 
     return (
-        <RCTScrollView
+        <Container
             {...others}
-            style={[
-                config.border.container,
-                config.spacing.container,
-                {
-                    backgroundColor: color.background,
-                    borderColor: color.border,
-                    shadowColor: color.shadow,
-                },
-                style
-            ]}
-        >
-            {children}
-        </RCTScrollView>
+            component={RCTScrollView}
+            theme={theme}
+            subtle={subtle}
+        />
     );
 };

@@ -1,5 +1,4 @@
 import React from 'react';
-import { StyleProp, ViewStyle } from 'react-native';
 
 import { NestableProps } from '../Common/React';
 import { ThemableProps } from '../Common/Theme';
@@ -7,7 +6,6 @@ import { useTheme } from '../Hooks/Theme';
 
 export type ContainerProps<P = {}> = P & NestableProps & ThemableProps & {
     component: React.ComponentClass<P, any>;
-    style?: StyleProp<ViewStyle>;
 };
 
 export function Container<P>(props: ContainerProps<P>) {

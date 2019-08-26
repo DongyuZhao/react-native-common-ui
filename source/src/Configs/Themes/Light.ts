@@ -7,7 +7,7 @@ export const Theme: UxTheme = {
         main: {
             primary: {
                 content: '#000',
-                background: '#fff0',
+                background: '#fff',
                 surface: '#000',
                 contrast: '#fff',
                 border: 'rgba(0, 0, 0, .1)',

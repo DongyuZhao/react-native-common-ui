@@ -1,6 +1,6 @@
 import React from 'react';
 import { Platform, ScrollView, StyleSheet } from 'react-native';
-import { Alert, Badge, Bubble, Button, Card, Container, Header, Link, name, Text, ThemeContext } from 'react-native-common-ui';
+import { Alert, Badge, Bubble, Button, Card, Container, Header, Link, Modal, name, Text, ThemeContext } from 'react-native-common-ui';
 
 const styles = StyleSheet.create({
     container: {
@@ -31,6 +31,7 @@ const instructions = Platform.select({
 
 interface State {
     theme: string;
+    modal: boolean;
 }
 
 // tslint:disable: max-line-length
@@ -39,33 +40,51 @@ export class App extends React.Component<any, State> {
         super(props);
 
         this.state = {
-            theme: 'light'
+            theme: 'light',
+            modal: false
         };
     }
 
     public render() {
         return (
             <ThemeContext.Provider value={this.state}>
-                    <Container component={ScrollView} subtle={false} contentContainerStyle={styles.container}>
-                        <Card subtle={false}>
-                            <Alert subtle={false} content={'This is an alert.'} level={'good'} />
-                            <Header level={1} subtle={false}>Sample</Header>
-                            <Text style={styles.welcome} subtle={false} variant={'primary'}>
-                                Welcome to {name}!
+                <Modal
+                    visible={this.state.modal}
+                    animationType='fade'
+                    onBackgroundPress={this.hideModal}
+                    transparent={true}
+                >
+                    <Header level={4} subtle={false}>Modal</Header>
+                    <Text style={styles.welcome} subtle={false} variant='primary'>
+                        Welcome to {name}!
+                    </Text>
+                    <Text style={styles.instructions} subtle={false} variant='danger'>To get started, edit App.js</Text>
+                    <Text style={styles.instructions} subtle={false} variant='mark'>{instructions}</Text>
+                    <Text subtle={false} variant='primary'>
+                        The repo is host on <Link url='https://github.com/DongyuZhao/react-native-common-ui' subtle={false} style={styles.instructions}>GitHub</Link>
+                    </Text>
+                </Modal>
+                <Container component={ScrollView} subtle={false} contentContainerStyle={styles.container}>
+                    <Card subtle={false}>
+                        <Alert subtle={false} content='This is an alert.' level='good' />
+                        <Header level={1} subtle={false}>Sample</Header>
+                        <Text style={styles.welcome} subtle={false} variant='primary'>
+                            Welcome to {name}!
                             </Text>
-                            <Text style={styles.instructions} subtle={false} variant={'danger'}>To get started, edit App.js</Text>
-                            <Text style={styles.instructions} subtle={false} variant={'mark'}>{instructions}</Text>
-                            <Text subtle={false} variant={'primary'}>
-                                The repo is host on <Link url={'https://github.com/DongyuZhao/react-native-common-ui'} subtle={false} style={styles.instructions}>GitHub</Link>
-                            </Text>
-                            <Badge level='good' variant='pill' content='MSFT' subtle={false} />
-                            <Badge level='warn' variant='normal' content='MSFT' subtle={false} />
-                            <Bubble content='Ping' level='good' role='ping' subtle={false} />
-                            <Bubble content='Pong' level='info' role='pong' subtle={false} />
-                            <Button title='LIGHT THEME' variant='accent' reverse={false} subtle={false} onPress={this.onChangeToLight} />
-                            <Button title='DARK THEME' variant='accent' reverse={true} subtle={false} onPress={this.onChangeToDark} />
-                        </Card>
-                    </Container>
+                        <Text style={styles.instructions} subtle={false} variant='danger'>To get started, edit App.js</Text>
+                        <Text style={styles.instructions} subtle={false} variant='mark'>{instructions}</Text>
+                        <Text subtle={false} variant='primary'>
+                            The repo is host on <Link url='https://github.com/DongyuZhao/react-native-common-ui' subtle={false} style={styles.instructions}>GitHub</Link>
+                        </Text>
+                        <Badge level='good' variant='pill' content='MSFT' subtle={false} />
+                        <Badge level='warn' variant='normal' content='MSFT' subtle={false} />
+                        <Bubble content='Ping' level='good' role='ping' subtle={false} />
+                        <Bubble content='Pong' level='info' role='pong' subtle={false} />
+                        <Button title='LIGHT THEME' variant='accent' reverse={false} subtle={false} onPress={this.onChangeToLight} />
+                        <Button title='DARK THEME' variant='accent' reverse={true} subtle={false} onPress={this.onChangeToDark} />
+                        <Button title='Modal' variant='warn' reverse={true} subtle={false} onPress={this.showModal} />
+                    </Card>
+                </Container>
             </ThemeContext.Provider>
         );
     }
@@ -79,6 +98,18 @@ export class App extends React.Component<any, State> {
     private readonly onChangeToDark = () => {
         this.setState({
             theme: 'dark'
+        });
+    }
+
+    private readonly showModal = () => {
+        this.setState({
+            modal: true
+        });
+    }
+
+    private readonly hideModal = () => {
+        this.setState({
+            modal: false
         });
     }
 }

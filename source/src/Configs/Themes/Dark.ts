@@ -8,7 +8,7 @@ export const Theme: UxTheme = {
                 background: '#000',
                 surface: '#fff',
                 contrast: '#000',
-                border: 'rgba(255, 255, 255, .1)',
+                border: 'rgba(255, 255, 255, .3)',
                 shadow: '#fff',
             },
             secondary: {

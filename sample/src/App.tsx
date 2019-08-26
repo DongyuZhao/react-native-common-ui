@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Platform, ScrollView, StyleSheet } from 'react-native';
 import { Alert, Badge, Bubble, Button, Card, Container, Header, Link, name, Text, ThemeContext } from 'react-native-common-ui';
 
@@ -34,7 +34,7 @@ interface State {
 }
 
 // tslint:disable: max-line-length
-export class App extends Component<any, State> {
+export class App extends React.Component<any, State> {
     public constructor(props: any) {
         super(props);
 

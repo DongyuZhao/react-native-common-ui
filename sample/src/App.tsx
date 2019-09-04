@@ -1,6 +1,20 @@
 import React from 'react';
 import { Platform, ScrollView, StyleSheet } from 'react-native';
-import { Alert, Badge, Bubble, Button, Card, Container, Header, Link, Modal, name, Text, ThemeContext } from 'react-native-common-ui';
+import {
+    Alert,
+    Badge,
+    Bubble,
+    Button,
+    Card,
+    Container,
+    Header,
+    Link,
+    Modal,
+    name,
+    Switch,
+    Text,
+    ThemeContext
+} from 'react-native-common-ui';
 
 const styles = StyleSheet.create({
     container: {
@@ -32,6 +46,7 @@ const instructions = Platform.select({
 interface State {
     theme: string;
     modal: boolean;
+    checkbox: boolean;
 }
 
 // tslint:disable: max-line-length
@@ -41,7 +56,8 @@ export class App extends React.Component<any, State> {
 
         this.state = {
             theme: 'light',
-            modal: false
+            modal: false,
+            checkbox: false,
         };
     }
 
@@ -83,6 +99,21 @@ export class App extends React.Component<any, State> {
                         <Button title='LIGHT THEME' variant='accent' reverse={false} subtle={false} onPress={this.onChangeToLight} />
                         <Button title='DARK THEME' variant='accent' reverse={true} subtle={false} onPress={this.onChangeToDark} />
                         <Button title='Modal' variant='warn' reverse={true} subtle={false} onPress={this.showModal} />
+                        <Switch type='checkbox' variant='accent' onSwitch={this.onToggleCheckBox} value={this.state.checkbox} subtle={false}>
+                            <Text subtle={false} variant='primary'>
+                                CheckBox
+                            </Text>
+                        </Switch>
+                        <Switch type='radio' variant='accent' onSwitch={this.onToggleCheckBox} value={this.state.checkbox} subtle={false}>
+                            <Text subtle={false} variant='primary'>
+                                Radio
+                            </Text>
+                        </Switch>
+                        <Switch type='toggle' variant='accent' onSwitch={this.onToggleCheckBox} value={this.state.checkbox} subtle={false}>
+                            <Text subtle={false} variant='primary'>
+                                Toggle
+                            </Text>
+                        </Switch>
                     </Card>
                 </Container>
             </ThemeContext.Provider>
@@ -98,6 +129,12 @@ export class App extends React.Component<any, State> {
     private readonly onChangeToDark = () => {
         this.setState({
             theme: 'dark'
+        });
+    }
+
+    private readonly onToggleCheckBox = () => {
+        this.setState({
+            checkbox: !this.state.checkbox
         });
     }
 

@@ -84,12 +84,12 @@ export const Theme: UxTheme = {
                 shadow: '#0072c6',
             },
             separator: {
-                content: '#0002',
+                content: '#fff8',
                 background: '#fff0',
-                surface: '#0002',
-                contrast: '#000',
-                border: '#0002',
-                shadow: '#0002',
+                surface: '#fff8',
+                contrast: '#fff',
+                border: '#fff8',
+                shadow: '#fff8',
             },
         },
         subtle: {

@@ -6,5 +6,6 @@ export { Card } from './Card';
 export { Header } from './Header';
 export { Link } from './Link';
 export { Modal } from './Modal';
+export { Switch } from './Switch';
 export { Text } from './Text';
 export { Container } from './Container';

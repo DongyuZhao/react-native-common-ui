@@ -1,5 +1,5 @@
 import React from 'react';
-import { Platform, ScrollView, StyleSheet } from 'react-native';
+import { LayoutChangeEvent, Platform, ScrollView, StyleSheet } from 'react-native';
 import {
     Alert,
     Avatar,
@@ -8,6 +8,7 @@ import {
     Button,
     Card,
     Container,
+    FlexImage,
     Header,
     Link,
     Modal,
@@ -48,6 +49,8 @@ interface State {
     theme: string;
     modal: boolean;
     checkbox: boolean;
+    width: number;
+    height: number;
 }
 
 // tslint:disable: max-line-length
@@ -59,6 +62,8 @@ export class App extends React.Component<any, State> {
             theme: 'light',
             modal: false,
             checkbox: false,
+            width: 0,
+            height: 0,
         };
     }
 
@@ -82,7 +87,7 @@ export class App extends React.Component<any, State> {
                     </Text>
                 </Modal>
                 <Container component={ScrollView} subtle={false} contentContainerStyle={styles.container}>
-                    <Card subtle={false}>
+                    <Card subtle={false} onLayout={this.onLayout} style={{ width: '95%' }}>
                         <Alert subtle={false} content='This is an alert.' level='good' />
                         <Header level={1} subtle={false}>Sample</Header>
                         <Text style={styles.welcome} subtle={false} variant='primary'>
@@ -93,7 +98,21 @@ export class App extends React.Component<any, State> {
                         <Text subtle={false} variant='primary'>
                             The repo is host on <Link url='https://github.com/DongyuZhao/react-native-common-ui' subtle={false} style={styles.instructions}>GitHub</Link>
                         </Text>
-                        <Avatar source={{ uri: 'https://avatars2.githubusercontent.com/u/8455725?s=88&v=4' }} fill='auto' width={48} height={48} alt='test'/>
+                        <Avatar source={{ uri: 'https://avatars2.githubusercontent.com/u/8455725?s=88&v=4' }} fill='auto' width={48} height={48} alt='test' />
+                        <FlexImage
+                            source={{ uri: 'https://www.bing.com/th?id=OHR.RamsauWimbachklamm_JA-JP2537848550_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp' }}
+                            fill='horizontal'
+                            width={this.state.width}
+                            height={this.state.height}
+                            alt='test'
+                        />
+                        <FlexImage
+                            source={{ uri: 'https://www.bing.com/th?id=OHR.Vessel_JA-JP2364863537_UHD.jpg&rf=LaDigue_UHD.jpg&pid=hp&w=3840&h=2160&rs=1&c=4' }}
+                            fill='horizontal'
+                            width={this.state.width}
+                            height={this.state.height}
+                            alt='test'
+                        />
                         <Badge level='good' variant='pill' content='MSFT' subtle={false} />
                         <Badge level='warn' variant='normal' content='MSFT' subtle={false} />
                         <Bubble content='Ping' level='good' role='ping' subtle={false} />
@@ -137,6 +156,13 @@ export class App extends React.Component<any, State> {
     private readonly onToggleCheckBox = () => {
         this.setState({
             checkbox: !this.state.checkbox
+        });
+    }
+
+    private readonly onLayout = (event: LayoutChangeEvent) => {
+        this.setState({
+            width: event.nativeEvent.layout.width - 16,
+            height: event.nativeEvent.layout.height
         });
     }
 

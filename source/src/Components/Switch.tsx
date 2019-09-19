@@ -80,6 +80,7 @@ export const Switch = (props: SwitchProps) => {
                     <RCTSwitch
                         value={value}
                         onValueChange={onSwitch}
+                        thumbColor={colorSet.separator.surface}
                         trackColor={{
                             true: color.content,
                             false: colorSet.separator.border

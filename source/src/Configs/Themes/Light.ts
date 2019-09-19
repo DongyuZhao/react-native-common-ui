@@ -15,7 +15,7 @@ export const Theme: UxTheme = {
             },
             secondary: {
                 content: '#737373',
-                background: '#fff0',
+                background: '#fff',
                 surface: '#737373',
                 contrast: '#fff',
                 border: '#737373',
@@ -23,7 +23,7 @@ export const Theme: UxTheme = {
             },
             info: {
                 content: '#007bff',
-                background: '#fff0',
+                background: '#fff',
                 surface: '#007bff',
                 contrast: '#fff',
                 border: '#007bff',
@@ -31,7 +31,7 @@ export const Theme: UxTheme = {
             },
             good: {
                 content: '#28a745',
-                background: '#fff0',
+                background: '#fff',
                 surface: '#28a745',
                 contrast: '#fff',
                 border: '#28a745',
@@ -39,7 +39,7 @@ export const Theme: UxTheme = {
             },
             warn: {
                 content: '#ffc107',
-                background: '#fff0',
+                background: '#fff',
                 surface: '#ffc107',
                 contrast: '#000',
                 border: '#ffc107',
@@ -47,7 +47,7 @@ export const Theme: UxTheme = {
             },
             danger: {
                 content: '#dc3545',
-                background: '#fff0',
+                background: '#fff',
                 surface: '#dc3545',
                 contrast: '#fff',
                 border: '#dc3545',
@@ -63,7 +63,7 @@ export const Theme: UxTheme = {
             },
             code: {
                 content: '#dc3545',
-                background: '#fff0',
+                background: '#fff',
                 surface: '#dc3545',
                 contrast: '#fff',
                 border: '#dc3545',
@@ -71,7 +71,7 @@ export const Theme: UxTheme = {
             },
             quote: {
                 content: '#0002',
-                background: '#fff0',
+                background: '#fff',
                 surface: '#0002',
                 contrast: '#fff',
                 border: '#0002',
@@ -79,7 +79,7 @@ export const Theme: UxTheme = {
             },
             accent: {
                 content: '#0072c6',
-                background: '#fff0',
+                background: '#fff',
                 surface: '#0072c6',
                 contrast: '#fff',
                 border: '#0072c6',
@@ -87,8 +87,8 @@ export const Theme: UxTheme = {
             },
             separator: {
                 content: '#0002',
-                background: '#fff0',
-                surface: '#0002',
+                background: '#fff',
+                surface: '#fff',
                 contrast: '#000',
                 border: '#0002',
                 shadow: '#0002',

@@ -1,14 +1,12 @@
 import React from 'react';
-import { LayoutChangeEvent, Platform, ScrollView, StyleSheet } from 'react-native';
+import { LayoutChangeEvent, Platform, ScrollView, StyleSheet, View } from 'react-native';
 import {
     Alert,
-    Avatar,
     Badge,
     Bubble,
     Button,
     Card,
     Container,
-    FlexImage,
     Header,
     Link,
     Modal,
@@ -86,57 +84,44 @@ export class App extends React.Component<any, State> {
                         The repo is host on <Link url='https://github.com/DongyuZhao/react-native-common-ui' subtle={false} style={styles.instructions}>GitHub</Link>
                     </Text>
                 </Modal>
-                <Container component={ScrollView} subtle={false} contentContainerStyle={styles.container}>
-                    <Card subtle={false} onLayout={this.onLayout} style={{ width: '95%' }}>
-                        <Alert subtle={false} content='This is an alert.' level='good' />
-                        <Header level={1} subtle={false}>Sample</Header>
-                        <Text style={styles.welcome} subtle={false} variant='primary'>
-                            Welcome to {name}!
+                <View style={{flex: 1}}>
+                    <Container component={ScrollView} subtle={false} contentContainerStyle={styles.container}>
+                        <Card subtle={false} onLayout={this.onLayout} style={{ width: '95%' }}>
+                            <Alert subtle={false} content='This is an alert.' level='good' />
+                            <Header level={1} subtle={false}>Sample</Header>
+                            <Text style={styles.welcome} subtle={false} variant='primary'>
+                                Welcome to {name}!
                             </Text>
-                        <Text style={styles.instructions} subtle={false} variant='danger'>To get started, edit App.js</Text>
-                        <Text style={styles.instructions} subtle={false} variant='mark'>{instructions}</Text>
-                        <Text subtle={false} variant='primary'>
-                            The repo is host on <Link url='https://github.com/DongyuZhao/react-native-common-ui' subtle={false} style={styles.instructions}>GitHub</Link>
-                        </Text>
-                        <Avatar source={{ uri: 'https://avatars2.githubusercontent.com/u/8455725?s=88&v=4' }} fill='auto' width={48} height={48} alt='test' />
-                        <FlexImage
-                            source={{ uri: 'https://www.bing.com/th?id=OHR.RamsauWimbachklamm_JA-JP2537848550_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp' }}
-                            fill='horizontal'
-                            width={this.state.width}
-                            height={this.state.height}
-                            alt='test'
-                        />
-                        <FlexImage
-                            source={{ uri: 'https://www.bing.com/th?id=OHR.Vessel_JA-JP2364863537_UHD.jpg&rf=LaDigue_UHD.jpg&pid=hp&w=3840&h=2160&rs=1&c=4' }}
-                            fill='horizontal'
-                            width={this.state.width}
-                            height={this.state.height}
-                            alt='test'
-                        />
-                        <Badge level='good' variant='pill' content='MSFT' subtle={false} />
-                        <Badge level='warn' variant='normal' content='MSFT' subtle={false} />
-                        <Bubble content='Ping' level='good' role='ping' subtle={false} />
-                        <Bubble content='Pong' level='info' role='pong' subtle={false} />
-                        <Button title='LIGHT THEME' variant='accent' reverse={false} subtle={false} onPress={this.onChangeToLight} />
-                        <Button title='DARK THEME' variant='accent' reverse={true} subtle={false} onPress={this.onChangeToDark} />
-                        <Button title='Modal' variant='warn' reverse={true} subtle={false} onPress={this.showModal} />
-                        <Switch type='checkbox' variant='accent' onSwitch={this.onToggleCheckBox} value={this.state.checkbox} subtle={false}>
+                            <Text style={styles.instructions} subtle={false} variant='danger'>To get started, edit App.js</Text>
+                            <Text style={styles.instructions} subtle={false} variant='mark'>{instructions}</Text>
                             <Text subtle={false} variant='primary'>
-                                CheckBox
+                                The repo is host on <Link url='https://github.com/DongyuZhao/react-native-common-ui' subtle={false} style={styles.instructions}>GitHub</Link>
                             </Text>
-                        </Switch>
-                        <Switch type='radio' variant='accent' onSwitch={this.onToggleCheckBox} value={this.state.checkbox} subtle={false}>
-                            <Text subtle={false} variant='primary'>
-                                Radio
+                            <Badge level='good' variant='pill' content='MSFT' subtle={false} />
+                            <Badge level='warn' variant='normal' content='MSFT' subtle={false} />
+                            <Bubble content='Ping' level='good' role='ping' subtle={false} />
+                            <Bubble content='Pong' level='info' role='pong' subtle={false} />
+                            <Button title='LIGHT THEME' variant='accent' reverse={false} subtle={false} onPress={this.onChangeToLight} />
+                            <Button title='DARK THEME' variant='accent' reverse={true} subtle={false} onPress={this.onChangeToDark} />
+                            <Button title='Modal' variant='warn' reverse={true} subtle={false} onPress={this.showModal} />
+                            <Switch type='checkbox' variant='accent' onSwitch={this.onToggleCheckBox} value={this.state.checkbox} subtle={false}>
+                                <Text subtle={false} variant='primary'>
+                                    CheckBox
                             </Text>
-                        </Switch>
-                        <Switch type='toggle' variant='accent' onSwitch={this.onToggleCheckBox} value={this.state.checkbox} subtle={false}>
-                            <Text subtle={false} variant='primary'>
-                                Toggle
+                            </Switch>
+                            <Switch type='radio' variant='accent' onSwitch={this.onToggleCheckBox} value={this.state.checkbox} subtle={false}>
+                                <Text subtle={false} variant='primary'>
+                                    Radio
                             </Text>
-                        </Switch>
-                    </Card>
-                </Container>
+                            </Switch>
+                            <Switch type='toggle' variant='accent' onSwitch={this.onToggleCheckBox} value={this.state.checkbox} subtle={false}>
+                                <Text subtle={false} variant='primary'>
+                                    Toggle
+                            </Text>
+                            </Switch>
+                        </Card>
+                    </Container>
+                </View>
             </ThemeContext.Provider>
         );
     }

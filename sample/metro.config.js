@@ -32,4 +32,12 @@ module.exports = {
             ...projectDependencies,
         ],
     },
+    transformer: {
+        getTransformOptions: async () => ({
+            transform: {
+                experimentalImportSupport: false,
+                inlineRequires: false,
+            },
+        }),
+    },
 };
